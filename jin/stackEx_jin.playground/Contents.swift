@@ -12,9 +12,7 @@ import UIKit
 
  ptr: 포인터
  
- 
- 출처: Do it! 자료구조와 함께 배우는 알고리즘 입문 (자바편) - Bohyoh Shibata
- 출처: 씩이블로그 (https://the-brain-of-sic2.tistory.com/18)
+
  */
 
 
