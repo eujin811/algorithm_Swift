@@ -5,10 +5,10 @@
 - [Stack](https://github.com/eujin811/algorithm_Swift/tree/master/study#stack)
 - [Queue](https://github.com/eujin811/algorithm_Swift/tree/master/study#queue)
 - [최대공약수]()
-	- 유클리드 호제
+	- [유클리드 호제]()
 - [최소공배수]()
 - [소수]()
-- [에라토스테네스 체]()
+	- [에라토스테네스 체]()
 - [팩토리얼]()
 
 ------------------------------------------------
@@ -129,7 +129,7 @@
    ```
 
 ## 최대공약수(GCD, Greatest Common Divisor)
-
+## 유클리드 호제법
 ## 소수
 
 ## 에라토스테네스 체
