@@ -2,8 +2,8 @@
 
 ## Content
 
-- [Stack]()
-- [Queue]()
+- [Stack](https://github.com/eujin811/algorithm_Swift/tree/master/study#stack)
+- [Queue](https://github.com/eujin811/algorithm_Swift/tree/master/study#queue)
 
 
 
