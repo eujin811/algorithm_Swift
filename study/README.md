@@ -6,7 +6,7 @@
 - [Queue](https://github.com/eujin811/algorithm_Swift/tree/master/study#queue)
 - [최대공약수](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98gcd-greatest-common-divisor)
 	- [유클리드 호제](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%ED%98%B8%EC%A0%9C%EB%B2%95)
-- [최소공배수]()
+- [최소공배수](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98lcm-least-common-multiple)
 - [소수](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%86%8C%EC%88%98)
 	- [에라토스테네스 체](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4-%EC%B2%B4)
 - [팩토리얼](https://github.com/eujin811/algorithm_Swift/tree/master/study#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC)
@@ -129,7 +129,24 @@
    ```
 
 ## 최대공약수(GCD, Greatest Common Divisor)
+- 두 수 A와 B의 공통된 약수 중에서 가장 큰 정수
+- A와 B를 각각 2부터 min(A, B)까지의 모든 정수로 나누어 보면서 둘다 나누어 떨어지게 되는 가장 큰 수를 구한다.
+- 시간복잡도 O(n)
+   ```swift
+	func gcd(num1 a: Int, num2 b: Int) -> Int {
+	   var g = 1
+	   for i in 2...min(a,b) {
+		if a % i == 0 && b % i == 0 {
+		   g = i
+		}
+	   }
+	   return g
+	}
+
+	gcd(num1: 11, num2: 22)		// 11
+   ```
 ## 유클리드 호제법
+
 ## 최소공배수(LCM, Least Common Multiple)
 ## 소수
 
