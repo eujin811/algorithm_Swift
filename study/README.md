@@ -26,7 +26,7 @@
 	  
 	  func pop() -> Int {
 		return array.isEmpty ? -1 : array.removeLast()
-		//return array.popLast()
+		//return array.popLast() ?? -1
 	  }
 	 
 	  func size() -> Int {
@@ -81,27 +81,6 @@
 	  }
 	}
 	
-	let myStack = Stack(size: 1000)
-	
-	func soluton(_ s: String) -> Int {
-	  let comp = s.components(separatedBy: " ")
-
-	  switch comp[0] {
-	     case "push":
-        	guard let value = Int(comp[1]) else { return -1 }
-        	myStack.push(value)
-       	 	return value
-    	     case "pop":
-        	return myStack.pop()
-    	     case "size":
-        	return myStack.size()
-    	     case "empty":
-        	return myStack.isEmpty()
-    	     case "top":
-        	return myStack.top()
-    	     default:
-        	return -1
-	  }
 	}
    ```
 ## Queue
@@ -112,5 +91,37 @@
 - front: 데이터 꺼내는 쪽(맨앞)
 - rear: 데이터를 넣는 쪽 (맨뒤)
 - peek: 가장 앞의 데이터 알려줌
+
+   ```swift
+	class Queue {
+	   private var queue = Array<Int>(repeating: 0, count: 1000)
+	   private var front = 0
+	   private var rear = 0
+
+	   func push(_ data: Int) {
+		queue[rear] = data
+		rear += 1
+	   }
+	
+	   func pop() -> Int {
+		let data = queue[front]
+		queue[front] = 0
+		front += 1
+		return data
+	   }
+
+	   func isEmpty() -> Bool {
+		return front == rear
+	   }
+
+	   func size() -> Int {
+		return rear - front
+	   }
+
+	   func peek() -> Int {
+		return queue[front]
+	   }
+	}
+   ```
 
 
