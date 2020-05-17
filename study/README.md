@@ -4,12 +4,12 @@
 
 - [Stack](https://github.com/eujin811/algorithm_Swift/tree/master/study#stack)
 - [Queue](https://github.com/eujin811/algorithm_Swift/tree/master/study#queue)
-- [최대공약수]()
-	- [유클리드 호제]()
+- [최대공약수](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98gcd-greatest-common-divisor)
+	- [유클리드 호제](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C-%ED%98%B8%EC%A0%9C%EB%B2%95)
 - [최소공배수]()
-- [소수]()
-	- [에라토스테네스 체]()
-- [팩토리얼]()
+- [소수](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%86%8C%EC%88%98)
+	- [에라토스테네스 체](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4-%EC%B2%B4)
+- [팩토리얼](https://github.com/eujin811/algorithm_Swift/tree/master/study#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC)
 
 ------------------------------------------------
 ## Stack
@@ -130,6 +130,7 @@
 
 ## 최대공약수(GCD, Greatest Common Divisor)
 ## 유클리드 호제법
+## 최소공배수(LCM, Least Common Multiple)
 ## 소수
 
 ## 에라토스테네스 체
