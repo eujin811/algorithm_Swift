@@ -13,9 +13,8 @@
 - push: 데이터 넣을 때
 - pop: 데이터 꺼낼 때
 - top: 가장 마지막에 넣은 데이터
--    
+- 간단버전
    ```swift
-    // 1. 간단 버전
 	class Stack {
 	  private var array = [Int]()
 
@@ -43,9 +42,8 @@
 	  }
 	}	
    ```
-
+- 정석
    ```swift
-	//2.
 	class Stack {
 	  private var cArray: [Int}
 	  private var head = 0
@@ -60,9 +58,8 @@
 	  }
 
 	  func pop() -> Int {
-		if head == 0 {
-		  	return -1
-		} else {
+		if head == 0 { return -1 } 
+		else {
 			let pop = cArray[head]
 			head -= 1
 			return pop
@@ -74,19 +71,16 @@
 	  }
 
 	  func isEmpty() -> Int {
-		if head == 0 {
-			return 1
-
-		} else {
-			return 0
-		}
+		if head == 0 { return 1 } 
+		else { return 0 }
 	  }
 	  func top() -> Int {
 		guard head != 0 else { return -1 }
+		
 		return cArray[head - 1]
 	  }
 	}
-
+	
 	let myStack = Stack(size: 1000)
 	
 	func soluton(_ s: String) -> Int {
