@@ -133,20 +133,40 @@
 - A와 B를 각각 2부터 min(A, B)까지의 모든 정수로 나누어 보면서 둘다 나누어 떨어지게 되는 가장 큰 수를 구한다.
 - 시간복잡도 O(n)
    ```swift
-	func gcd(num1 a: Int, num2 b: Int) -> Int {
-	   var g = 1
-	   for i in 2...min(a,b) {
-		if a % i == 0 && b % i == 0 {
-		   g = i
-		}
-	   }
-	   return g
-	}
+	var g = 1
 
-	gcd(num1: 11, num2: 22)		// 11
+	for i in 2...min(a,b) {
+	   if a % i == 0 && b % i == 0 {
+		g = i
+	   }
+	}
+	
+	// min(a,b) 둘중 작은것 반
    ```
 ## 유클리드 호제법
-
+- A를 B로 나눈 나머지를 R라고 할 때(단, A>B), GCD(A, B) = GCD(B, R)과 같다
+- (1071, 1029) = (1029, 42) = (42, 21) = (21,0) = 21
+- 시간복잡도 O(log N)
+- 재귀적 활용
+   ```swift
+	func GCD(num1 a: Int, num2 b: Int) -> Int {
+	   if b == 0 { return a }
+	   else { return GCD(num1: b, num2: a % b)
+	}
+   ```
+- 반복문 활용
+   ```swift
+	func GCD(num1 a: Int, num2 b: Int) -> Int {
+	   var a = a, b = b
+	   
+	   while b != 0 {
+		var r = a % b
+		a = b
+		b = r
+	   }
+	   return a
+	}
+   ```
 ## 최소공배수(LCM, Least Common Multiple)
 ## 소수
 
