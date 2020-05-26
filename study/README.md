@@ -204,6 +204,7 @@
    ```
 
    ```swift
+	// O(n)
 	var memo = [Int: Int]()
 	func fibonacci2(_ n: Int) -> Int {
 	   guard n > 1 else { return n }
