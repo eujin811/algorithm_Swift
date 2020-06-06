@@ -28,23 +28,23 @@
 
    ```swift
 	func solution(_ w:Int, _ h:Int) -> Int64 {
-    		guard w != h else { return Int64( w * h - w) }
-    		guard w != 1, h != 1 else { return 0 }
+    	   guard w != h else { return Int64( w * h - w) }
+    	   guard w != 1, h != 1 else { return 0 }
+     
+    	   var answer: Int64 = 0
     
-    		var answer: Int64 = 0
+    	   let g = gcd(w,h)
+    	   let numberOfBreaks = g > 1 ? w + h - g : w + h - 1
     
-    		let g = gcd(w,h)
-    		let numberOfBreaks = g > 1 ? w + h - g : w + h - 1
+    	   answer = Int64( w * h - numberOfBreaks )
     
-    		answer = Int64( w * h - numberOfBreaks )
-    
-    		return answer
+    	   return answer
 	}
 
 	func gcd(_ a: Int, _ b: Int) -> Int {
-    		guard b > 0 else { return a }
+    	   guard b > 0 else { return a }
     		
-    		return gcd(b, a % b)
+    	   return gcd(b, a % b)
 	}	
 	
    ```
