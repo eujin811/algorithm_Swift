@@ -27,7 +27,25 @@
 	-  가로가 8, 세로가 12인 직사각형을 대각선 방향으로 자르면 총 16개 정사각형을 사용할 수 없게 됩니다. 원래 직사각형에서는 96개의 정사각형을 만들 수 있었으므로, 96 - 16 = 80 을 반환합니다.
 
    ```swift
-	
+	func solution(_ w:Int, _ h:Int) -> Int64 {
+    		guard w != h else { return Int64( w * h - w) }
+    		guard w != 1, h != 1 else { return 0 }
+    
+    		var answer: Int64 = 0
+    
+    		let g = gcd(w,h)
+    		let numberOfBreaks = g > 1 ? w + h - g : w + h - 1
+    
+    		answer = Int64( w * h - numberOfBreaks )
+    
+    		return answer
+	}
+
+	func gcd(_ a: Int, _ b: Int) -> Int {
+    		guard b > 0 else { return a }
+    		
+    		return gcd(b, a % b)
+	}	
 	
    ```
 
