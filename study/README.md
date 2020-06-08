@@ -231,11 +231,15 @@
 - 경로(Path)
 	- 정점 A에서 비로 가는 간선의 연속
 	- A -> C -> D -> E -> B
+  <p align="center">
+  <img src="../assets/Graph/Graph_Path.png" alt="집합 기본 메소드" height="50%" width="50%">
+  </p>
+
 - 사이클(Cycle)
 	- 시작점과 도착점이 같은 경로
 	- A -> C -> B -> A
   <p align="center">
-  <img src="assets/Graph/Graph_Cycle.png" alt="집합 기본 메소드" height="50%" width="50%">
+  <img src="../assets/Graph/Graph_Cycle.png" alt="집합 기본 메소드" height="50%" width="50%">
   </p>
 - 단순 경로와 단순 사이클
 	- 같은 정점을 두번 이상 방문하지 않는 경로/사이클
@@ -246,9 +250,17 @@
 	- 방향이 없는 그래프
 - 루프
 	- 간선의 양 끝점이 같은 경우
+  <p align="center">
+  <img src="../assets/Graph/Graph_loop.png" alt="집합 기본 메소드" height="50%" width="50%">
+  </p>
+
 - 가중치
 	- A에서 B로 이동하는 거리, 시간, 이동하는데 필요한 비용 
 	- 가중치가 별도로 표시되지 않으면 1을 나타냄
+  <p align="center">
+  <img src="../assets/Graph/Graph_Weight.png" alt="집합 기본 메소드" height="50%" width="50%">
+  </p>
+
 - 차수(Degree)
 	- 정점에 연결되어 있는 간선의 개수
 	- 방향이 있는 그래프의 경우 In-degree, Out-degree로 나뉨
