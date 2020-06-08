@@ -11,15 +11,17 @@
 	- [에라토스테네스 체](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4-%EC%B2%B4)
 - [팩토리얼](https://github.com/eujin811/algorithm_Swift/tree/master/study#%ED%8C%A9%ED%86%A0%EB%A6%AC%EC%96%BC)
 - [다이나믹 프로그래밍](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+- [SingleLinkedList]()
+- [DoubleLinkedList]()
 - [그래프 Graph](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EA%B7%B8%EB%9E%98%ED%94%84graph)
-	- [그래프표현]()
-	- [인접 행렬]()
-	- [인접 리스트]()
-	- [간선 리스트]()
-	- [공간 복잡도]()
-	- 그래프 탐색]()
-	- [BFS 너비 우선 탐색]()
-	- [DFS 깊이 우선 탐색]()
+	- [그래프표현](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EA%B7%B8%EB%9E%98%ED%94%84%EC%9D%98-%ED%91%9C%ED%98%84)
+	- [인접 행렬](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%9D%B8%EC%A0%91-%ED%96%89%EB%A0%AC)
+	- [인접 리스트](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%9D%B8%EC%A0%91-%EB%A6%AC%EC%8A%A4%ED%8A%B8)
+	- [간선 리스트](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EA%B0%84%EC%84%A0-%EB%A6%AC%EC%8A%A4%ED%8A%B8)
+	- [공간 복잡도](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84)
+	- [그래프 탐색](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EA%B7%B8%EB%9E%98%ED%94%84-%ED%83%90%EC%83%89)
+	- [BFS 너비 우선 탐색](https://github.com/eujin811/algorithm_Swift/tree/master/study#bfs)
+	- [DFS 깊이 우선 탐색](https://github.com/eujin811/algorithm_Swift/tree/master/study#dfs)
 - [트리 Tree](https://github.com/eujin811/algorithm_Swift/tree/master/study#%ED%8A%B8%EB%A6%ACtree)
 - [MST](https://github.com/eujin811/algorithm_Swift/tree/master/study#mstminimum-spanning-tree)
 - [최단경로](https://github.com/eujin811/algorithm_Swift/tree/master/study#%EC%B5%9C%EB%8B%A8%EA%B2%BD%EB%A1%9Csingle-source-shortest-path)
@@ -228,6 +230,80 @@
 	   }
 	}
    ```
+
+## SingleLinkedList
+
+- 하나의 포인터 멤버로 다른 노드 데이터를 가르키는 것 (HEAD 없이 TAIL만 존재)
+- 앞으로 돌아갈 수 없으며, 중간 위치로 바로 접근하지 못 함.
+- Head 노드 주소를 잃어버리면 데이터 전체 접근 불가, 중간이 유실되면 그 이후 노드들에 접근이 불가능하다.
+- Queue 현에 많이 사용, 랜덤 엑세스 성능이 낮고 불안정
+- push: 데이터 삽입, pop: 데이터 추출, peek: 마지막 데이터 확인
+   ```swift
+	final class Node {
+	   var value: String?
+	   var next: Node?
+
+	   init(value: String) { self.value = value }
+	}	
+
+	protocol LinkedListStack {
+	   var size: Int { get }
+	   var isEmpty: Bool { get }
+	   func push(node: Node)
+	   func pop() -> String?
+	   func peek() -> String?
+	}
+
+	final class SingleLinkedList: LinkedListStack {
+	   var size: Int = 0 {
+		didSet { size = size < 0 ? 0 : size } 	// size 최저 0개 
+	   }
+	   var isEmpty: Bool { return head.next == nil }
+	
+	   private var head: Node = Node(value: "")
+	   private var lastNode: Node? {
+		guard var node = head.next else { return nil } 	// 사이즈 0일 때
+		while let nextNode = node.next {
+		   node = nextNode
+		}
+		return node
+	   }
+
+	   func push(node newNode: Node {
+		size += 1
+		guard let node = lastNode else { return head.next = newNode }	// 처음 값을 넣을 때 
+
+		node.next = newNode
+	   }
+	
+	   func pop() -> String? {
+		size -= 1
+		guard var node = head.next else { return nil }	// size = 0
+		while let nextNode = node.next {		// size >= 2
+		   guard nextNode.next != nil else {		// next 없을 경우 마지막 노드 지움
+			node.next = nil
+			return nextNode.value
+		   }
+		   node = nextNode				// next있으면 다음 노드 넣어줌
+		}
+		// size = 1	 head.next가 끝일 경우
+		head.next = nil
+		return node.value
+	   }
+
+	   func peek() -> String? {
+		guard let node = lastNode else { return nil }
+		return node.value
+	   }
+
+	}
+   ```
+
+
+
+## DoubleLinkedList
+- HEAD가 이전, TAIL이 이후 노드 데이터를 가르킨다.
+- 끊어진 체인 복구 가능
 
 
 # 그래프(Graph)
