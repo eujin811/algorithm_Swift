@@ -235,7 +235,7 @@
 	- 시작점과 도착점이 같은 경로
 	- A -> C -> B -> A
   <p align="center">
-  <img src="assets/Graph/Graph_Cycle.jpeg" alt="집합 기본 메소드" height="50%" width="50%">
+  <img src="assets/Graph/Graph_Cycle.png" alt="집합 기본 메소드" height="50%" width="50%">
   </p>
 - 단순 경로와 단순 사이클
 	- 같은 정점을 두번 이상 방문하지 않는 경로/사이클
