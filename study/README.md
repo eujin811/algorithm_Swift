@@ -251,14 +251,14 @@
 - 루프
 	- 간선의 양 끝점이 같은 경우
   <p align="center">
-  <img src="../assets/Graph/Graph_loop.png" alt="집합 기본 메소드" height="50%" width="50%">
+  <img src="../Assets/Graph/Graph_loop.png" alt="집합 기본 메소드" height="50%" width="50%">
   </p>
 
 - 가중치
 	- A에서 B로 이동하는 거리, 시간, 이동하는데 필요한 비용 
 	- 가중치가 별도로 표시되지 않으면 1을 나타냄
   <p align="center">
-  <img src="../assets/Graph/Graph_Weight.png" alt="집합 기본 메소드" height="50%" width="50%">
+  <img src="../Assets/Graph/Graph_Weight.png" alt="집합 기본 메소드" height="50%" width="50%">
   </p>
 
 - 차수(Degree)
