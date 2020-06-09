@@ -307,7 +307,125 @@
 ## DoubleLinkedList
 - HEAD가 이전, TAIL이 이후 노드 데이터를 가르킨다.
 - 끊어진 체인 복구 가능
+   ```swift
+	final class Node {
+	   let value: String
+	   weak var previous: Node?	// 이전 node
+	   var next: Node?		// 다음 node
 
+	   init(value: String) {
+		self.value = value
+	   }
+	   deinit {
+		print("\(value) Node has deinitialized")
+	   }
+	}
+
+	final class DoubleLinkedList {
+	   private var head: Node?
+	   private weak var tail: Node?
+
+	   var first: Node? { return head }
+	   var last: Node? { return tail }
+	   var isEmpty: Bool { return head == nil }
+	   var count: Int {
+		guard var node = head else { return 0 }
+
+		var count = 1
+		while let nextNode = node.next {
+		   count += 1
+		   node = nextNode
+		}
+		return count
+	   }
+
+	   func append(node: Node) {
+		if let tailNode = tail {
+		   tailNode.next = node
+		   node.previous = tailNode
+		} else {
+		   head = node
+		}
+		tail = node
+	   }
+
+	   func insert(node newNode: Node, at index: Int) {
+		var node = head
+		for _ in 0..<index {
+		   node = node?.next
+		}
+
+		guard node != nil else { return print("index error") }
+
+		newNode.previous = node?.previous
+		newNode.next = node
+		node?.previous?.next = newNode
+		node?.previous = newNode
+	   }
+
+	   func node(at index: Int) -> Node? {
+		var node = head
+		for _ in 0..<index {
+		   node = node?.next
+		}
+		return node
+	   }
+
+	   func node(by value: String) -> Node? {
+		var node = head
+		while node?.value != value {
+		   node = node?.next
+		}
+		return node
+	   }
+
+	   func remove(at index: Int) -> String? {
+		guard let node = node(at: index) else { return nil }
+
+		if node === head {
+		   head = node.next
+		} else if node === tail {
+		   tail = node.previous
+		}
+
+		node.previous?.next = node.next
+		node.next?.previous = node.previous
+
+		return node.value
+	   }
+
+	   func removeNode(by value: String) -> Bool {
+		guard let node = node(by: vlue) else { return false }
+		
+		if node === head {
+		   head = node.next
+		} else if node === tail {
+		   tail = node.previous
+		}
+
+		node.previous?.next = node.next
+		node.next?.previous = node.previous
+
+		return true
+	   }
+
+	   func removeAll() {
+		head = nil
+		tail = nil
+	   }
+
+	   func scanValues() {
+		var values: [String] = []
+		var node = head 
+
+		while let _ = node {
+		   values.append(node!.value)
+		   node = node!.next
+		}
+		print("Values:", values)
+	   }
+	}
+   ```
 
 # 그래프(Graph)
 - G = (V,E)
