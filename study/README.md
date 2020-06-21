@@ -295,8 +295,10 @@
 	   }
 
 	   func peek() -> String? {
-		guard let node = lastNode else { return nil }
-		return node.value
+		//guard let node = lastNode else { return nil }
+		//return node.value
+
+		return lastNode?.value
 	   }
 
 	}
